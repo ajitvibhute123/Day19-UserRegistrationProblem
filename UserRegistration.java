@@ -34,11 +34,23 @@ public class UserRegistration {
 		} else {
 			System.out.println("invalid phone Number");
 		}
+		System.out.println("Enter password");
+		String password = scanner.next();
+		if (passwordValidation(password)) {
+			System.out.println("valid password");
+		} else {
+			System.out.println("invalid password");
+		}
+	}
+
+	private static boolean passwordValidation(String password) {
+		String passwordValidation = "(?=.*[0-9])(?=.*[A-Z])[a-zA-Z]{8,}";
+		return Pattern.matches(passwordValidation, password);
 	}
 
 	private static boolean phoneValidation(String phoneNumber) {
-		String phoneValidation="91\\s[0-9]{10}";
-		return Pattern.matches(phoneValidation,phoneNumber);
+		String phoneValidation = "91\\s[0-9]{10}";
+		return Pattern.matches(phoneValidation, phoneNumber);
 	}
 
 	private static boolean emailValidation(String email) {
