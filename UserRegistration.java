@@ -19,6 +19,20 @@ public class UserRegistration {
 			System.out.println("valid lastName");
 		else
 			System.out.println("inavlid lastt name");
+		System.out.println("enter email");
+		String email=scanner.next();
+		if(emailValidation(email)) {
+			System.out.println("valid email");
+		}
+		else {
+			System.out.println("invalid email");
+		}
+	}
+
+	private static boolean emailValidation(String email) {
+		String emailValidation="abc(\\.[a-z]+)?\\@bl\\.co(\\.in)?";
+		return Pattern.matches(emailValidation, email);
+		
 	}
 
 	private static boolean validateName(String firstName) {
