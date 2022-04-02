@@ -40,7 +40,7 @@ public class UserRegistration {
 			System.out.println("valid password");
 		} else {
 			System.out.println("invalid password");
-		}
+		}emailTesting();
 	}
 
 	private static boolean passwordValidation(String password) {
@@ -64,4 +64,19 @@ public class UserRegistration {
 		return Pattern.matches(nameValidation, firstName);
 	}
 
+	public static void emailTesting() {
+		System.out.println("Email testing");
+		String[] emails = { "abc@yahoo.com", "abc-100@yahoo.com", "abc.100@yahoo.com", "abc111@abc.com",
+				"abc-100@abc.net", "abc.100@abc.com.au", "abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com", "abc",
+				"abc@.com.my", "abc123@gmail.a", "abc123@.com", "abc123@.com.com", ".abc@abc.com", "abc()*@gmail.com",
+				"abc@%*.com", "abc..2002@gmail.com", "abc.@gmail.com", "abc@abc@gmail.com", "abc@gmail.com.1a",
+				"abc@gmail.com.aa.au" };
+		for (int i = 0; i < emails.length; i++) {
+			if (emailValidation(emails[i]))
+				System.out.println(emails[i] + " valid");
+
+			else
+				System.out.println(emails[i] + " not valid");
+		}
+	}
 }
