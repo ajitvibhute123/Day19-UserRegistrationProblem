@@ -20,19 +20,31 @@ public class UserRegistration {
 		else
 			System.out.println("inavlid lastt name");
 		System.out.println("enter email");
-		String email=scanner.next();
-		if(emailValidation(email)) {
+		String email = scanner.next();
+		if (emailValidation(email)) {
 			System.out.println("valid email");
-		}
-		else {
+		} else {
 			System.out.println("invalid email");
+		}
+		System.out.println("Enter phone number");
+		String phoneNumber = scanner.next();
+		if (phoneValidation(phoneNumber)) {
+			System.out.println("valid phonenumber");
+
+		} else {
+			System.out.println("invalid phone Number");
 		}
 	}
 
+	private static boolean phoneValidation(String phoneNumber) {
+		String phoneValidation="91\\s[0-9]{10}";
+		return Pattern.matches(phoneValidation,phoneNumber);
+	}
+
 	private static boolean emailValidation(String email) {
-		String emailValidation="abc(\\.[a-z]+)?\\@bl\\.co(\\.in)?";
+		String emailValidation = "abc(\\.[a-z]+)?\\@bl\\.co(\\.in)?";
 		return Pattern.matches(emailValidation, email);
-		
+
 	}
 
 	private static boolean validateName(String firstName) {
